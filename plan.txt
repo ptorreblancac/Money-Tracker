@@ -1,0 +1,29 @@
+Money tracker v1 (CLI version)
+
+Features:
+- add/remove/modify expense
+- add/remove/modify category
+- add/modify/remove earning
+- sort by category/date
+- generate monthly report
+- add persistence
+--------
+Core concepts:
+- Transaction (expense/earning)
+- Dashboard
+- Category
+- Report
+--------
+Data flow:
+User input -> Validation -> Data update -> Memory update (persistence) -> Output
+--------
+Layers
+- Core logic: money operations, handle input/output
+- Persistence: save/load data
+- Interface: CLI
+
+
+
+V2
+- user authentication
+- saving goals

@@ -1,3 +1,5 @@
+from category import Category
+
 class Dashboard:
     def __init__(self):
         self.transactionList = [] #includes a list of all transaction objects
@@ -6,8 +8,22 @@ class Dashboard:
     def getAllTransactions(self):
         return self.transactionList
     
+    def getTransaction(self,i):
+        return self.transactionList[i]
+    
+    def editTransaction(self,opt,newValue,fieldName):
+        setattr(self.transactionList[opt],fieldName,newValue)
+        
+    
     def addTransaction(self,t):
-        self.transactionList.append(t)
+        categoryExisted = self.findCategory(t.category)
+        if (not categoryExisted): # verify if category existed already, if not add it
+            if (t.type == 'expense'): # substract expenses from total amount
+                amount *= -1
+            c = Category(t.category,t.amount)
+            self.addCategory(c) # add the category to the list
+
+        self.transactionList.append(t) # add the transaction to the list
 
     def getAllCategories(self):
         return self.categoryList
